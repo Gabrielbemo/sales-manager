@@ -1,10 +1,12 @@
 package com.gabriel.store.controllers.dtos.out;
 
 import com.gabriel.store.models.Sale;
-import com.gabriel.store.models.Seller;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.Builder;
 
 import java.time.LocalDate;
 
@@ -18,9 +20,13 @@ public class CreateSaleResponseDTO {
     @NotNull(message = "The sale id cannot be null")
     private Long id;
 
+    @NotNull(message = "The sale date cannot be null")
+    private LocalDate saleDate;
+
     public static CreateSaleResponseDTO fromEntity(final Sale sale) {
         return CreateSaleResponseDTO.builder()
                 .id(sale.getId())
+                .saleDate(sale.getSaleDate())
                 .build();
     }
 }
