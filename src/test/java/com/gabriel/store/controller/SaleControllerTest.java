@@ -5,11 +5,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.mockito.Mockito.when;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gabriel.store.controllers.SaleController;
-import com.gabriel.store.controllers.dtos.in.CreateSaleRequestDTO;
-import com.gabriel.store.controllers.dtos.out.CreateSaleResponseDTO;
-import com.gabriel.store.models.Sale;
-import com.gabriel.store.services.SaleService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +17,12 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.time.LocalDate;
+
+import com.gabriel.store.controllers.SaleController;
+import com.gabriel.store.controllers.dtos.in.CreateSaleRequestDTO;
+import com.gabriel.store.controllers.dtos.out.CreateSaleResponseDTO;
+import com.gabriel.store.models.Sale;
+import com.gabriel.store.services.SaleService;
 
 @WebMvcTest(SaleController.class)
 public class SaleControllerTest {

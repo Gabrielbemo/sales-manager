@@ -1,14 +1,15 @@
 package com.gabriel.store.controllers.dtos.out;
 
-import com.gabriel.store.models.Sale;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Builder;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
+
+import com.gabriel.store.models.Sale;
 
 @Getter
 @Setter
