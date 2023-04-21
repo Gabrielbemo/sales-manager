@@ -11,7 +11,7 @@ import com.gabriel.store.controllers.dtos.out.CreateSaleResponseDTO;
 import com.gabriel.store.models.Sale;
 import com.gabriel.store.services.SaleService;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -27,18 +27,18 @@ import java.time.LocalDate;
 public class SaleControllerTest {
 
     @Autowired
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
 
     @MockBean
-    SaleService saleService;
+    private SaleService saleService;
 
     @Autowired
-    ObjectMapper objectMapper;
+    private ObjectMapper objectMapper;
 
-    static CreateSaleRequestDTO createSaleRequestDTO;
+    private CreateSaleRequestDTO createSaleRequestDTO;
 
-    @BeforeAll
-    public static void setup() {
+    @BeforeEach
+    public void setup() {
         createSaleRequestDTO = CreateSaleRequestDTO.builder()
                 .saleDate(LocalDate.now())
                 .saleValue(123L)
