@@ -7,8 +7,6 @@ import jakarta.validation.ValidatorFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -16,7 +14,6 @@ import java.util.Set;
 import com.gabriel.store.controllers.dtos.in.CreateSaleRequestDTO;
 import com.gabriel.store.models.Sale;
 
-@ExtendWith(MockitoExtension.class)
 public class CreateSaleRequestDTOTest {
     private Validator validator;
 
@@ -45,14 +42,14 @@ public class CreateSaleRequestDTOTest {
     }
 
     @Test
-    public void validateDTO_WithValidData_ValidationsReturnsEmpty() {
+    public void validateDTO_WithValidData_ViolationsReturnsEmpty() {
         Set<ConstraintViolation<CreateSaleRequestDTO>> violations = validator.validate(createSaleRequestDTO);
 
         Assertions.assertTrue(violations.isEmpty());
     }
 
     @Test
-    public void validateDTO_WithInvalidData_ValidationsReturnsNotEmpty() {
+    public void validateDTO_WithInvalidData_ViolationsReturnsNotEmpty() {
         createSaleRequestDTO.setSaleDate(null);
         createSaleRequestDTO.setSaleValue(null);
         createSaleRequestDTO.setSellerId(null);

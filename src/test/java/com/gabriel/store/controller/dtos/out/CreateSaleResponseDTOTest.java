@@ -44,14 +44,14 @@ public class CreateSaleResponseDTOTest {
     }
 
     @Test
-    public void validateDTO_WithValidData_ValidationsReturnsEmpty() {
+    public void validateDTO_WithValidData_ViolationsReturnsEmpty() {
         Set<ConstraintViolation<CreateSaleResponseDTO>> violations = validator.validate(createSaleResponseDTO);
 
         Assertions.assertTrue(violations.isEmpty());
     }
 
     @Test
-    public void validateDTO_WithInvalidData_ValidationsReturnsNotEmpty() {
+    public void validateDTO_WithInvalidData_ViolationsReturnsNotEmpty() {
         createSaleResponseDTO.setSaleDate(null);
         createSaleResponseDTO.setId(null);
 
