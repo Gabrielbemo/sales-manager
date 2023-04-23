@@ -11,12 +11,16 @@ public class SaleService {
 
     public final SaleRepository saleRepository;
 
-    public SaleService(SaleRepository saleRepository) {
+    public final SellerService sellerService;
+
+    public SaleService(SaleRepository saleRepository, SellerService sellerService) {
         this.saleRepository = saleRepository;
+        this.sellerService = sellerService;
     }
 
     @Transactional
     public Sale create(Sale sale) {
+        sellerService.updateSellerSalesAmount(sale.getSeller().getId());
         return saleRepository.save(sale);
     }
 }

@@ -1,6 +1,5 @@
 package com.gabriel.store.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,15 +13,18 @@ import com.gabriel.store.controllers.dtos.out.CreateSaleResponseDTO;
 import com.gabriel.store.models.Sale;
 import com.gabriel.store.services.SaleService;
 
-@RestController()
+@RestController
 @RequestMapping("api/v1/sales")
 public class SaleController {
 
-    @Autowired
-    SaleService saleService;
+    private final SaleService saleService;
+
+    public SaleController(SaleService saleService) {
+        this.saleService = saleService;
+    }
 
     @PostMapping()
-    public ResponseEntity<CreateSaleResponseDTO> create(@RequestBody @Valid CreateSaleRequestDTO createSaleRequestDTO) {
+    public ResponseEntity<CreateSaleResponseDTO> create(@RequestBody @Valid final CreateSaleRequestDTO createSaleRequestDTO) {
         Sale sale = saleService.create(createSaleRequestDTO.toEntity());
         return new ResponseEntity<>(
                 CreateSaleResponseDTO.fromEntity(sale),
