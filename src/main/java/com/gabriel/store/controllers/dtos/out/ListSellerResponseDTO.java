@@ -22,5 +22,5 @@ public class ListSellerResponseDTO {
     private Long salesAmount;
 
     @NotNull(message = "The seller sales daily average cannot be null")
-    private double salesDailyAverage;
+    private Double salesDailyAverage;
 }
