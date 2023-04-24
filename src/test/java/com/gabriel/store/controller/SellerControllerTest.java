@@ -41,14 +41,14 @@ public class SellerControllerTest {
     public void setup() {
         sellersList.add(ListSellerResponseDTO.builder()
                 .name("test1")
-                .salesAmount(1L)
-                .salesDailyAverage(1.0)
+                .salesAmount(1)
+                .salesDailyAverage(1L)
                 .build());
 
         sellersList.add(ListSellerResponseDTO.builder()
                 .name("test2")
-                .salesAmount(2L)
-                .salesDailyAverage(2.0)
+                .salesAmount(2)
+                .salesDailyAverage(2L)
                 .build());
     }
 

@@ -26,8 +26,8 @@ public class ListSellerResponseDTOTest {
 
         listSellerResponseDTO = ListSellerResponseDTO.builder()
                 .name("test")
-                .salesAmount(1L)
-                .salesDailyAverage(1.0)
+                .salesAmount(1)
+                .salesDailyAverage(1L)
                 .build();
     }
 
@@ -41,12 +41,11 @@ public class ListSellerResponseDTOTest {
     @Test
     public void validateDTO_WithInvalidData_ViolationsReturnsNotEmpty() {
         listSellerResponseDTO.setName(null);
-        listSellerResponseDTO.setSalesAmount(null);
         listSellerResponseDTO.setSalesDailyAverage(null);
 
         Set<ConstraintViolation<ListSellerResponseDTO>> violations = validator.validate(listSellerResponseDTO);
 
         Assertions.assertFalse(violations.isEmpty());
-        Assertions.assertEquals(3, violations.size());
+        Assertions.assertEquals(2, violations.size());
     }
 }

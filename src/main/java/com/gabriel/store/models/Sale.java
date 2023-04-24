@@ -33,7 +33,7 @@ public class Sale {
     private Long saleValue;
 
     @ManyToOne()
-    @JoinColumn(name = "fkSeller")
+    @JoinColumn(name = "seller_id")
     @NotNull(message = "The seller cannot be null")
     private Seller seller;
 }

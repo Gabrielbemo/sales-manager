@@ -29,7 +29,7 @@ public class Seller {
     private Long id;
 
     @Column(columnDefinition = "integer default 0")
-    private Long salesAmount;
+    private int salesAmount;
 
     @NotEmpty(message = "The seller name cannot be empty")
     private String name;

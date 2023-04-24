@@ -25,7 +25,7 @@ public class SellerTest {
         seller = Seller.builder()
                 .id(1L)
                 .name("test1")
-                .salesAmount(1L)
+                .salesAmount(1)
                 .build();
     }
 

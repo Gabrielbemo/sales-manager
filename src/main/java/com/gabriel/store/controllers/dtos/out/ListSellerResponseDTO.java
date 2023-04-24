@@ -10,8 +10,8 @@ import lombok.Builder;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class ListSellerResponseDTO {
 
@@ -19,8 +19,8 @@ public class ListSellerResponseDTO {
     private String name;
 
     @NotNull(message = "The seller sales amount cannot be null")
-    private Long salesAmount;
+    private int salesAmount;
 
     @NotNull(message = "The seller sales daily average cannot be null")
-    private Double salesDailyAverage;
+    private Long salesDailyAverage;
 }
