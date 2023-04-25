@@ -2,6 +2,7 @@ package com.gabriel.store.services;
 
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.doNothing;
 
 import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Assertions;
@@ -14,6 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 
+import com.gabriel.store.models.Seller;
 import com.gabriel.store.models.Sale;
 import com.gabriel.store.repositories.SaleRepository;
 
@@ -22,6 +24,9 @@ public class SaleServiceTest {
 
     @InjectMocks
     private SaleService saleService;
+
+    @Mock
+    private SellerService sellerService;
 
     @Mock
     private SaleRepository saleRepository;
@@ -33,12 +38,14 @@ public class SaleServiceTest {
         testSale = Sale.builder()
                 .saleDate(LocalDate.now())
                 .saleValue(123L)
+                .seller(new Seller(1L))
                 .build();
     }
 
     @Test
     public void createSale_WithValidData_ReturnsSale() {
         when(saleRepository.save(isA(Sale.class))).thenReturn(testSale);
+        doNothing().when(sellerService).updateSellerSalesAmount(isA(Long.class));
 
         Sale sale = saleService.create(testSale);
 
